@@ -3,9 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Marca Personal | CV Digital</title>
-    <meta name="description" content="Portafolio y CV digital de un profesional.">
+    <title>Max Ventura | Ingeniero Civil - CV Digital</title>
+    <meta name="description" content="Portafolio y CV digital de Max Ventura, Ingeniero Civil especializado en diseño estructural y gestión de proyectos.">
     
+    <!-- Favicon (Icono de la pestaña en el navegador) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏗️</text></svg>">
+    
+    <!-- Open Graph (SEO para que se vea bien al compartir el link en WhatsApp o LinkedIn) -->
+    <meta property="og:title" content="Max Ventura | Ingeniero Civil">
+    <meta property="og:description" content="Portafolio y CV digital especializado en diseño estructural y gestión de proyectos de construcción.">
+    <!-- Nota: Cuando tengas tu link final de Vercel, ponlo aquí abajo -->
+    <meta property="og:url" content="https://TU_LINK_DE_VERCEL.vercel.app/">
+    <meta property="og:type" content="website">
+
     <!-- Fuentes de Google: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +51,18 @@
         .glass-nav {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        /* Animaciones al hacer scroll (Premium feel) */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -71,14 +93,14 @@
 
                 <!-- Botón Menú Móvil -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2">
+                    <button id="mobile-menu-btn" aria-label="Abrir menú" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2">
                         <i class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Menú Móvil -->
+        <!-- Menú Móvil desplegable -->
         <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
             <div class="px-4 pt-2 pb-6 space-y-1">
                 <a href="#inicio" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Inicio</a>
@@ -90,12 +112,12 @@
         </div>
     </nav>
 
-    <section id="inicio" class="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative">
+    <section id="inicio" class="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative min-h-[80vh] flex items-center">
         <!-- Decoración de fondo -->
         <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-brand-100 opacity-50 blur-3xl"></div>
         <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 
                 <!-- Texto Hero -->
@@ -115,7 +137,7 @@
                         <a href="#proyectos" class="px-8 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-medium transition-colors shadow-lg shadow-brand-500/30 text-center">
                             Ver mis trabajos
                         </a>
-                        <a href="#" class="px-8 py-3 bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 rounded-full font-medium transition-all text-center flex items-center justify-center gap-2">
+                        <a href="./mi-cv-2024.pdf" target="_blank" class="px-8 py-3 bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 rounded-full font-medium transition-all text-center flex items-center justify-center gap-2">
                             <i class="fa-solid fa-download"></i> Descargar CV
                         </a>
                     </div>
@@ -125,7 +147,7 @@
                 <div class="md:w-2/5 flex justify-center">
                     <div class="relative">
                         <div class="absolute inset-0 bg-brand-600 rounded-2xl transform translate-x-4 translate-y-4"></div>
-                        <img src="./img/foto-perfil.jpg" alt="Foto de Max Ventura" class="relative z-10 rounded-2xl shadow-xl w-64 md:w-80 object-cover border-4 border-white">
+                        <img src="./img/foto-perfil.jpg" onerror="this.src='https://placehold.co/400x500/2563eb/ffffff?text=Foto+Max'" alt="Foto de Max Ventura" class="relative z-10 rounded-2xl shadow-xl w-64 md:w-80 object-cover border-4 border-white aspect-[4/5]">
                     </div>
                 </div>
             </div>
@@ -190,9 +212,9 @@
                         <i class="fa-solid fa-briefcase text-white text-xs"></i>
                     </span>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-                        <span class="text-sm text-brand-600 font-semibold tracking-wide">Enero 2022 - Presente</span>
-                        <h3 class="text-xl font-bold text-slate-900 mt-1">Ingeniero Residente de Obra</h3>
-                        <p class="text-slate-500 mb-4 font-medium">[Nombre de la Constructora]</p>
+                        <span class="text-sm text-brand-600 font-semibold tracking-wide">Julio 2026 - Presente</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Ingeniero supervisor de obra</h3>
+                        <p class="text-slate-500 mb-4 font-medium">INACONS S.A.C.</p>
                         <p class="text-slate-600">
                             Supervisión y ejecución de proyectos de edificación multifamiliar. Control de calidad de materiales, manejo de personal obrero y valorizaciones mensuales.
                         </p>
@@ -205,9 +227,9 @@
                         <i class="fa-solid fa-briefcase text-white text-xs"></i>
                     </span>
                     <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-                        <span class="text-sm text-slate-500 font-semibold tracking-wide">Marzo 2019 - Diciembre 2021</span>
+                        <span class="text-sm text-slate-500 font-semibold tracking-wide">Marzo 2026 - Julio 2026</span>
                         <h3 class="text-xl font-bold text-slate-900 mt-1">Asistente de Oficina Técnica</h3>
-                        <p class="text-slate-500 mb-4 font-medium">[Empresa de Ingeniería]</p>
+                        <p class="text-slate-500 mb-4 font-medium">EXPERTOP S.A.C.</p>
                         <p class="text-slate-600">
                             Elaboración de metrados, revisión de expedientes técnicos y actualización de planos as-built. Control de cronogramas con MS Project.
                         </p>
@@ -238,7 +260,7 @@
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Proyectos Destacados</h2>
                 <div class="w-16 h-1 bg-brand-600 mx-auto rounded-full mb-4"></div>
-                <p class="text-slate-500 max-w-2xl mx-auto">Una muestra de mis trabajos más recientes y de los que me siento más orgulloso.</p>
+                <p class="text-slate-500 max-w-2xl mx-auto">Una muestra de las obras y proyectos en los que he participado.</p>
             </div>
 
             <!-- Grilla de proyectos -->
@@ -247,10 +269,8 @@
                 <!-- Proyecto 1 -->
                 <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="./img/proyecto-1.jpg" alt="Edificio Multifamiliar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Detalles</a>
-                        </div>
+                        <!-- Usando fallback con onerror por si la imagen local no existe aún -->
+                        <img src="./img/proyecto-1.jpg" onerror="this.src='https://placehold.co/600x400/f8fafc/94a3b8?text=Foto+Obra+1'" alt="Edificio Multifamiliar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Edificio Multifamiliar "Los Pinos"</h3>
@@ -267,10 +287,7 @@
                 <!-- Proyecto 2 -->
                 <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="./img/proyecto-2.jpg" alt="Diseño de Puente" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Planos</a>
-                        </div>
+                        <img src="./img/proyecto-2.jpg" onerror="this.src='https://placehold.co/600x400/f8fafc/94a3b8?text=Planos+Puente'" alt="Diseño de Puente" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Diseño Estructural de Puente</h3>
@@ -287,10 +304,7 @@
                 <!-- Proyecto 3 -->
                 <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
                     <div class="relative h-48 overflow-hidden">
-                        <img src="./img/proyecto-3.jpg" alt="Modelado BIM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Modelo</a>
-                        </div>
+                        <img src="./img/proyecto-3.jpg" onerror="this.src='https://placehold.co/600x400/f8fafc/94a3b8?text=Modelo+BIM'" alt="Modelado BIM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-slate-900 mb-2">Coordinación BIM Centro Comercial</h3>
@@ -300,46 +314,6 @@
                         <div class="flex gap-2 text-xs font-medium text-slate-500">
                             <span class="bg-slate-100 px-2 py-1 rounded">Revit</span>
                             <span class="bg-slate-100 px-2 py-1 rounded">BIM</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 2 -->
-                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://placehold.co/600x400/f8fafc/94a3b8?text=Proyecto+2" alt="Proyecto 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Detalle</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">[Nombre del Proyecto 2]</h3>
-                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">
-                            Campaña de marketing digital que logró incrementar las ventas en un 35% en el primer trimestre.
-                        </p>
-                        <div class="flex gap-2 text-xs font-medium text-slate-500">
-                            <span class="bg-slate-100 px-2 py-1 rounded">Marketing</span>
-                            <span class="bg-slate-100 px-2 py-1 rounded">Estrategia</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3 -->
-                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://placehold.co/600x400/f8fafc/94a3b8?text=Proyecto+3" alt="Proyecto 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Repositorio</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold text-slate-900 mb-2">[Nombre del Proyecto 3]</h3>
-                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">
-                            Aplicación móvil para la gestión de inventarios en pequeños negocios.
-                        </p>
-                        <div class="flex gap-2 text-xs font-medium text-slate-500">
-                            <span class="bg-slate-100 px-2 py-1 rounded">Figma</span>
-                            <span class="bg-slate-100 px-2 py-1 rounded">UI/UX</span>
                         </div>
                     </div>
                 </div>
@@ -356,7 +330,7 @@
                 <div class="md:w-1/2">
                     <h2 class="text-3xl md:text-4xl font-bold mb-6">Trabajemos juntos</h2>
                     <p class="text-brand-100 mb-8 text-lg">
-                        ¿Tienes un proyecto en mente o una oportunidad laboral? Me encantaría escuchar sobre ello. Envíame un mensaje y te responderé lo antes posible.
+                        ¿Tienes un proyecto de construcción en mente o una oportunidad laboral? Me encantaría aportar con mi experiencia. Envíame un mensaje.
                     </p>
                     
                     <div class="space-y-6">
@@ -366,7 +340,7 @@
                             </div>
                             <div>
                                 <p class="text-sm text-brand-200">Email</p>
-                                <p class="font-medium">maxventura3.14@gmail.com</p>
+                                <a href="mailto:maxventura3.14@gmail.com" class="font-medium hover:text-brand-300 transition-colors">maxventura3.14@gmail.com</a>
                             </div>
                         </div>
                         <div class="flex items-center gap-4">
@@ -374,8 +348,9 @@
                                 <i class="fa-solid fa-phone"></i>
                             </div>
                             <div>
-                                <p class="text-sm text-brand-200">Teléfono / WhatsApp</p>
-                                <p class="font-medium">+51 999 968 227</p>
+                                <p class="text-sm text-brand-200">Celular / WhatsApp</p>
+                                <!-- Enlace directo a WhatsApp -->
+                                <a href="https://wa.me/51999968227" target="_blank" class="font-medium hover:text-brand-300 transition-colors">+51 999 968 227</a>
                             </div>
                         </div>
                     </div>
@@ -384,13 +359,13 @@
                     <div class="mt-10">
                         <p class="text-brand-200 font-medium mb-4">Sígueme en mis redes:</p>
                         <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
                                 <i class="fa-brands fa-facebook-f"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
+                            <a href="https://youtube.com" target="_blank" aria-label="YouTube" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
                                 <i class="fa-brands fa-youtube"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
+                            <a href="https://tiktok.com" target="_blank" aria-label="TikTok" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
                                 <i class="fa-brands fa-tiktok"></i>
                             </a>
                         </div>
@@ -399,13 +374,13 @@
 
                 <!-- Formulario -->
                 <div class="md:w-1/2">
-                    <!-- Usamos FormSubmit para que funcione con Vercel estático -->
                     <form action="https://formsubmit.co/maxventura3.14@gmail.com" method="POST" class="bg-white p-8 rounded-2xl shadow-xl">
                         <h3 class="text-2xl font-bold text-slate-800 mb-6">Envíame un mensaje</h3>
                         
-                        <!-- Configuraciones ocultas de FormSubmit -->
                         <input type="hidden" name="_subject" value="¡Nuevo mensaje de tu Portafolio web!">
                         <input type="hidden" name="_captcha" value="false">
+                        <!-- Redirigir a la misma página después de enviar -->
+                        <input type="hidden" name="_next" value="https://TU_LINK_DE_VERCEL.vercel.app/#contacto">
 
                         <div class="space-y-4">
                             <div>
@@ -418,7 +393,7 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-medium text-slate-700 mb-1">Mensaje</label>
-                                <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-slate-800 resize-none" placeholder="¿Cómo te puedo ayudar?"></textarea>
+                                <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-slate-800 resize-none" placeholder="¿Cómo te puedo ayudar en tu obra o proyecto?"></textarea>
                             </div>
                             
                             <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-lg transition-colors shadow-lg shadow-brand-500/30 flex justify-center items-center gap-2">
@@ -431,17 +406,21 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
             <p>&copy; 2024 Max Ventura. Todos los derechos reservados.</p>
             <div class="flex gap-6 text-sm">
                 <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
                 <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre Mí</a>
-                <a href="#portafolio" class="hover:text-white transition-colors">Proyectos</a>
+                <a href="#proyectos" class="hover:text-white transition-colors">Proyectos</a>
             </div>
         </div>
     </footer>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/51999968227" target="_blank" aria-label="Escríbeme por WhatsApp" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-lg hover:scale-110 hover:shadow-2xl transition-all z-50 animate-bounce" style="animation-duration: 2s; box-shadow: 0 4px 14px 0 rgba(37, 211, 102, 0.39);">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
 
     <script>
         // Lógica del menú móvil
@@ -465,9 +444,40 @@
             const nav = document.getElementById('navbar');
             if (window.scrollY > 10) {
                 nav.classList.add('shadow-sm');
+                nav.classList.add('bg-white');
             } else {
                 nav.classList.remove('shadow-sm');
+                nav.classList.remove('bg-white');
             }
+        });
+
+        // --- NUEVO: Lógica de animaciones de Scroll ---
+        // Esto detecta cuando un elemento entra en la pantalla
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Deja de observar una vez que ya apareció
+                }
+            });
+        }, observerOptions);
+
+        // Seleccionamos todos los elementos importantes y los preparamos para animar
+        const elementosAAnimar = document.querySelectorAll('section h2, section h3, section p, .grid > div, .relative.border-l-2 > div, form');
+        
+        elementosAAnimar.forEach((el, index) => {
+            el.classList.add('fade-in-up');
+            // Si es un proyecto (está dentro de la grilla), le damos un ligero retraso en cascada
+            if(el.closest('.grid')) {
+                el.style.transitionDelay = `${(index % 3) * 0.15}s`;
+            }
+            observer.observe(el);
         });
     </script>
 </body>
