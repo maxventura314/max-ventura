@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Marca Personal | CV Digital</title>
+    <meta name="description" content="Portafolio y CV digital de un profesional.">
+    
+    <!-- Fuentes de Google: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            900: '#1e3a8a',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Estilos personalizados sutiles */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+
+    <nav class="fixed w-full z-50 glass-nav border-b border-slate-200 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#inicio" class="text-2xl font-bold text-brand-600 tracking-tight">
+                        M<span class="text-slate-800">.</span>
+                    </a>
+                </div>
+                
+                <!-- Menú de Escritorio -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#inicio" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Inicio</a>
+                    <a href="#sobre-mi" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Sobre Mí</a>
+                    <a href="#experiencia" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Experiencia</a>
+                    <a href="#proyectos" class="text-slate-600 hover:text-brand-600 font-medium transition-colors">Proyectos</a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contacto" class="bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-full font-medium transition-colors shadow-sm shadow-brand-500/30">
+                        Contáctame
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#inicio" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Inicio</a>
+                <a href="#sobre-mi" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Sobre Mí</a>
+                <a href="#experiencia" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Experiencia</a>
+                <a href="#proyectos" class="block px-3 py-3 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50 hover:text-brand-600">Proyectos</a>
+                <a href="#contacto" class="block px-3 py-3 mt-4 text-center rounded-md text-base font-medium bg-brand-600 text-white hover:bg-brand-700">Contáctame</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="inicio" class="pt-32 pb-16 md:pt-40 md:pb-24 overflow-hidden relative">
+        <!-- Decoración de fondo -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-72 h-72 rounded-full bg-brand-100 opacity-50 blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                
+                <!-- Texto Hero -->
+                <div class="md:w-3/5 text-center md:text-left">
+                    <span class="text-brand-600 font-semibold tracking-wide uppercase text-sm mb-4 block">Hola, mi nombre es</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-4">
+                        Max Ventura
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl font-medium text-slate-600 mb-6">
+                        Soy <span class="text-brand-500">Ingeniero Civil</span>
+                    </h2>
+                    <p class="text-lg text-slate-500 mb-8 max-w-2xl mx-auto md:mx-0">
+                        Especializado en diseño estructural, gestión de proyectos y supervisión de obras, asegurando calidad, seguridad y eficiencia en cada construcción.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#proyectos" class="px-8 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-medium transition-colors shadow-lg shadow-brand-500/30 text-center">
+                            Ver mis trabajos
+                        </a>
+                        <a href="#" class="px-8 py-3 bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 rounded-full font-medium transition-all text-center flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i> Descargar CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen Hero -->
+                <div class="md:w-2/5 flex justify-center">
+                    <div class="relative">
+                        <div class="absolute inset-0 bg-brand-600 rounded-2xl transform translate-x-4 translate-y-4"></div>
+                        <img src="./img/foto-perfil.jpg" alt="Foto de Max Ventura" class="relative z-10 rounded-2xl shadow-xl w-64 md:w-80 object-cover border-4 border-white">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Sobre Mí</h2>
+                <div class="w-16 h-1 bg-brand-600 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2">
+                    <h3 class="text-2xl font-semibold text-slate-800 mb-4">Conoce un poco más de mi trayectoria</h3>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Soy un Ingeniero Civil colegiado y apasionado por la construcción y el desarrollo de infraestructura. Con experiencia en la planificación, ejecución y supervisión de obras civiles.
+                    </p>
+                    <p class="text-slate-600 leading-relaxed mb-6">
+                        Me destaco por mi capacidad para liderar equipos en campo, optimizar presupuestos y garantizar el cumplimiento de los estándares de seguridad y normativas técnicas vigentes.
+                    </p>
+                    
+                    <!-- Información de contacto rápida -->
+                    <ul class="space-y-3 text-slate-700">
+                        <li><i class="fa-solid fa-location-dot w-6 text-brand-600"></i> Lima, Perú</li>
+                        <li><i class="fa-solid fa-envelope w-6 text-brand-600"></i> maxventura3.14@gmail.com</li>
+                    </ul>
+                </div>
+
+                <div class="md:w-1/2 w-full">
+                    <h3 class="text-xl font-semibold text-slate-800 mb-6">Habilidades Principales</h3>
+                    <!-- Etiquetas de habilidades (Skills) -->
+                    <div class="flex flex-wrap gap-3">
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">AutoCAD</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">Revit / BIM</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">ETABS & SAP2000</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">MS Project</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">Gestión de Obras</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">Costos y Presupuestos (S10)</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">Liderazgo de equipos</span>
+                        <span class="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium border border-slate-200">Supervisión de Campo</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="py-20 bg-slate-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Experiencia Profesional</h2>
+                <div class="w-16 h-1 bg-brand-600 mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-500">Mi trayectoria en el mundo laboral</p>
+            </div>
+
+            <div class="relative border-l-2 border-slate-200 ml-3 md:ml-0 md:pl-0">
+                
+                <!-- Ítem de Experiencia 1 -->
+                <div class="mb-10 ml-8 md:ml-10 relative">
+                    <span class="absolute -left-10 md:-left-12 flex items-center justify-center w-6 h-6 bg-brand-600 rounded-full ring-8 ring-slate-50">
+                        <i class="fa-solid fa-briefcase text-white text-xs"></i>
+                    </span>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <span class="text-sm text-brand-600 font-semibold tracking-wide">Enero 2022 - Presente</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Ingeniero Residente de Obra</h3>
+                        <p class="text-slate-500 mb-4 font-medium">[Nombre de la Constructora]</p>
+                        <p class="text-slate-600">
+                            Supervisión y ejecución de proyectos de edificación multifamiliar. Control de calidad de materiales, manejo de personal obrero y valorizaciones mensuales.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ítem de Experiencia 2 -->
+                <div class="mb-10 ml-8 md:ml-10 relative">
+                    <span class="absolute -left-10 md:-left-12 flex items-center justify-center w-6 h-6 bg-slate-400 rounded-full ring-8 ring-slate-50">
+                        <i class="fa-solid fa-briefcase text-white text-xs"></i>
+                    </span>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
+                        <span class="text-sm text-slate-500 font-semibold tracking-wide">Marzo 2019 - Diciembre 2021</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Asistente de Oficina Técnica</h3>
+                        <p class="text-slate-500 mb-4 font-medium">[Empresa de Ingeniería]</p>
+                        <p class="text-slate-600">
+                            Elaboración de metrados, revisión de expedientes técnicos y actualización de planos as-built. Control de cronogramas con MS Project.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Ítem de Educación -->
+                <div class="ml-8 md:ml-10 relative">
+                    <span class="absolute -left-10 md:-left-12 flex items-center justify-center w-6 h-6 bg-brand-500 rounded-full ring-8 ring-slate-50">
+                        <i class="fa-solid fa-graduation-cap text-white text-xs"></i>
+                    </span>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <span class="text-sm text-slate-500 font-semibold tracking-wide">2014 - 2019</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Título de Ingeniero Civil</h3>
+                        <p class="text-slate-500 mb-4 font-medium">[Nombre de tu Universidad]</p>
+                        <p class="text-slate-600">
+                            Colegiado habilitado. Proyecto de tesis sobre diseño antisísmico de estructuras de concreto armado.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Proyectos Destacados</h2>
+                <div class="w-16 h-1 bg-brand-600 mx-auto rounded-full mb-4"></div>
+                <p class="text-slate-500 max-w-2xl mx-auto">Una muestra de mis trabajos más recientes y de los que me siento más orgulloso.</p>
+            </div>
+
+            <!-- Grilla de proyectos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Proyecto 1 -->
+                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./img/proyecto-1.jpg" alt="Edificio Multifamiliar" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Detalles</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Edificio Multifamiliar "Los Pinos"</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-3">
+                            Residencia de obra en la construcción de un edificio de 10 pisos con 2 sótanos. Gestión integral del proyecto desde la cimentación hasta los acabados.
+                        </p>
+                        <div class="flex gap-2 text-xs font-medium text-slate-500">
+                            <span class="bg-slate-100 px-2 py-1 rounded">Residencia</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">Concreto Armado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./img/proyecto-2.jpg" alt="Diseño de Puente" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Planos</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Diseño Estructural de Puente</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+                            Modelamiento y análisis estructural utilizando SAP2000 para un puente de 30 metros de luz, cumpliendo normativas AASHTO.
+                        </p>
+                        <div class="flex gap-2 text-xs font-medium text-slate-500">
+                            <span class="bg-slate-100 px-2 py-1 rounded">SAP2000</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">Estructuras</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="./img/proyecto-3.jpg" alt="Modelado BIM" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Modelo</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">Coordinación BIM Centro Comercial</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+                            Detección de interferencias y compatibilización de especialidades (Estructuras, Arquitectura, MEP) usando Revit.
+                        </p>
+                        <div class="flex gap-2 text-xs font-medium text-slate-500">
+                            <span class="bg-slate-100 px-2 py-1 rounded">Revit</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">BIM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/f8fafc/94a3b8?text=Proyecto+2" alt="Proyecto 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Detalle</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">[Nombre del Proyecto 2]</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+                            Campaña de marketing digital que logró incrementar las ventas en un 35% en el primer trimestre.
+                        </p>
+                        <div class="flex gap-2 text-xs font-medium text-slate-500">
+                            <span class="bg-slate-100 px-2 py-1 rounded">Marketing</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">Estrategia</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="group bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://placehold.co/600x400/f8fafc/94a3b8?text=Proyecto+3" alt="Proyecto 3" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                            <a href="#" class="text-white hover:text-brand-300 font-medium text-sm flex items-center gap-2"><i class="fa-solid fa-link"></i> Ver Repositorio</a>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-slate-900 mb-2">[Nombre del Proyecto 3]</h3>
+                        <p class="text-slate-600 text-sm mb-4 line-clamp-2">
+                            Aplicación móvil para la gestión de inventarios en pequeños negocios.
+                        </p>
+                        <div class="flex gap-2 text-xs font-medium text-slate-500">
+                            <span class="bg-slate-100 px-2 py-1 rounded">Figma</span>
+                            <span class="bg-slate-100 px-2 py-1 rounded">UI/UX</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-20 bg-brand-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-16">
+                
+                <!-- Info de Contacto -->
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Trabajemos juntos</h2>
+                    <p class="text-brand-100 mb-8 text-lg">
+                        ¿Tienes un proyecto en mente o una oportunidad laboral? Me encantaría escuchar sobre ello. Envíame un mensaje y te responderé lo antes posible.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-800 rounded-full flex items-center justify-center text-brand-300 text-xl">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-200">Email</p>
+                                <p class="font-medium">maxventura3.14@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 bg-brand-800 rounded-full flex items-center justify-center text-brand-300 text-xl">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-brand-200">Teléfono / WhatsApp</p>
+                                <p class="font-medium">+51 999 968 227</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Redes Sociales -->
+                    <div class="mt-10">
+                        <p class="text-brand-200 font-medium mb-4">Sígueme en mis redes:</p>
+                        <div class="flex gap-4">
+                            <a href="#" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-10 h-10 bg-brand-800 hover:bg-brand-600 rounded-full flex items-center justify-center transition-colors">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="md:w-1/2">
+                    <!-- Usamos FormSubmit para que funcione con Vercel estático -->
+                    <form action="https://formsubmit.co/maxventura3.14@gmail.com" method="POST" class="bg-white p-8 rounded-2xl shadow-xl">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-6">Envíame un mensaje</h3>
+                        
+                        <!-- Configuraciones ocultas de FormSubmit -->
+                        <input type="hidden" name="_subject" value="¡Nuevo mensaje de tu Portafolio web!">
+                        <input type="hidden" name="_captcha" value="false">
+
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Nombre</label>
+                                <input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-slate-800" placeholder="Tu nombre">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+                                <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-slate-800" placeholder="tu@email.com">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-slate-700 mb-1">Mensaje</label>
+                                <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:border-brand-500 outline-none transition-all text-slate-800 resize-none" placeholder="¿Cómo te puedo ayudar?"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-brand-600 hover:bg-brand-700 text-white font-semibold py-3 rounded-lg transition-colors shadow-lg shadow-brand-500/30 flex justify-center items-center gap-2">
+                                Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2024 Max Ventura. Todos los derechos reservados.</p>
+            <div class="flex gap-6 text-sm">
+                <a href="#inicio" class="hover:text-white transition-colors">Inicio</a>
+                <a href="#sobre-mi" class="hover:text-white transition-colors">Sobre Mí</a>
+                <a href="#portafolio" class="hover:text-white transition-colors">Proyectos</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Lógica del menú móvil
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const menuLinks = menu.querySelectorAll('a');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cerrar menú móvil al hacer clic en un enlace
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+            });
+        });
+
+        // Efecto visual en la barra de navegación al hacer scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                nav.classList.add('shadow-sm');
+            } else {
+                nav.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body>
+</html>
