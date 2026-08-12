@@ -12,9 +12,11 @@
     <!-- Open Graph (SEO para que se vea bien al compartir el link en WhatsApp o LinkedIn) -->
     <meta property="og:title" content="Max Ventura | Ingeniero Civil">
     <meta property="og:description" content="Portafolio y CV digital especializado en diseño estructural y gestión de proyectos de construcción.">
-    <!-- Nota: Cuando tengas tu link final de Vercel, ponlo aquí abajo -->
-    <meta property="og:url" content="https://TU_LINK_DE_VERCEL.vercel.app/">
+    <!-- El link oficial de tu proyecto en Vercel -->
+    <meta property="og:url" content="https://mkvg.vercel.app/">
     <meta property="og:type" content="website">
+    <!-- Opcional: Si quieres que salga una foto al compartir tu link, agrega esta línea con la URL completa de tu foto -->
+    <meta property="og:image" content="https://mkvg.vercel.app/img/foto-perfil.jpg">
 
     <!-- Fuentes de Google: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -143,11 +145,13 @@
                     </div>
                 </div>
 
-                <!-- Imagen Hero -->
-                <div class="md:w-2/5 flex justify-center">
+                <!-- Imagen Hero (¡Mejorada y Redimensionada!) -->
+                <div class="md:w-2/5 flex justify-center mt-8 md:mt-0">
                     <div class="relative">
-                        <div class="absolute inset-0 bg-brand-600 rounded-2xl transform translate-x-4 translate-y-4"></div>
-                        <img src="./img/foto-perfil.jpg" onerror="this.src='https://placehold.co/800x1000/2563eb/ffffff?text=Foto+Max'" alt="Foto de Max Ventura" class="relative z-10 rounded-2xl shadow-xl w-64 md:w-80 object-cover object-center border-4 border-white aspect-[4/5] bg-white">
+                        <!-- Sombra decorativa ajustada -->
+                        <div class="absolute inset-0 bg-brand-600 rounded-2xl transform translate-x-3 translate-y-3 md:translate-x-4 md:translate-y-4"></div>
+                        <!-- Imagen más controlada: w-48 en móviles, w-56 en tablets pequeñas, w-72 en PC -->
+                        <img src="./img/foto-perfil.jpg" onerror="this.src='https://placehold.co/800x1000/2563eb/ffffff?text=Foto+Max'" alt="Foto de Max Ventura" loading="lazy" class="relative z-10 rounded-2xl shadow-xl w-48 sm:w-56 md:w-72 object-cover object-top border-4 border-white aspect-[3/4] bg-white transition-transform hover:scale-[1.02] duration-300">
                     </div>
                 </div>
             </div>
