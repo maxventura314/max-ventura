@@ -69,6 +69,9 @@
     </style>
 </head>
 <body class="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-brand-500 selection:text-white">
+    
+    <!-- Barra de progreso de lectura (Soluciona error en scroll) -->
+    <div class="fixed top-0 left-0 h-1 bg-brand-600 z-[60] transition-all duration-150" id="scroll-progress" style="width: 0%;"></div>
 
     <nav class="fixed w-full z-50 glass-nav border-b border-slate-200 transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -128,8 +131,9 @@
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-4">
                         Max Ventura
                     </h1>
-                    <h2 class="text-2xl md:text-3xl font-medium text-slate-600 mb-6">
-                        Soy <span class="text-brand-500">Ingeniero Civil</span>
+                    <!-- Identificador typing-text agregado (Soluciona el error de type) -->
+                    <h2 class="text-2xl md:text-3xl font-medium text-slate-600 mb-6 h-10">
+                        Soy <span class="text-brand-500" id="typing-text"></span><span class="text-brand-500 animate-pulse">|</span>
                     </h2>
                     <p class="text-lg text-slate-500 mb-8 max-w-2xl mx-auto md:mx-0">
                         Especializado en diseño estructural, gestión de proyectos y supervisión de obras, asegurando calidad, seguridad y eficiencia en cada construcción.
@@ -139,7 +143,7 @@
                         <a href="#proyectos" class="px-8 py-3 bg-brand-600 hover:bg-brand-700 text-white rounded-full font-medium transition-colors shadow-lg shadow-brand-500/30 text-center">
                             Ver mis trabajos
                         </a>
-                        <a href="./cv-mkvg.pdf" download="CV_Max_Ventura_Ing_Civil.pdf" target="_blank" class="px-8 py-3 bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 rounded-full font-medium transition-all text-center flex items-center justify-center gap-2">
+                        <a href="./CV_Max_Ventura.pdf" download="CV_Max_Ventura_Ing_Civil.pdf" target="_blank" class="px-8 py-3 bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 rounded-full font-medium transition-all text-center flex items-center justify-center gap-2">
                             <i class="fa-solid fa-download"></i> Descargar CV
                         </a>
                     </div>
@@ -424,8 +428,11 @@
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
+    <!-- Librería para el efecto 3D de las tarjetas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
     <script>
-        // Lógica del menú móvil
+        // --- Menú Móvil ---
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const menuLinks = menu.querySelectorAll('a');
@@ -434,56 +441,100 @@
             menu.classList.toggle('hidden');
         });
 
-        // Cerrar menú móvil al hacer clic en un enlace
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 menu.classList.add('hidden');
             });
         });
 
-        // Efecto visual en la barra de navegación al hacer scroll
+        // --- Eventos de Scroll: Barra de progreso y Navbar ---
         window.addEventListener('scroll', () => {
+            // Navbar
             const nav = document.getElementById('navbar');
             if (window.scrollY > 10) {
-                nav.classList.add('shadow-sm');
-                nav.classList.add('bg-white');
+                nav.classList.add('shadow-sm', 'bg-white');
             } else {
-                nav.classList.remove('shadow-sm');
-                nav.classList.remove('bg-white');
+                nav.classList.remove('shadow-sm', 'bg-white');
+            }
+
+            // Barra de progreso
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            const progressBar = document.getElementById("scroll-progress");
+            if (progressBar) {
+                progressBar.style.width = scrolled + "%";
             }
         });
 
-        // --- NUEVO: Lógica de animaciones de Scroll ---
-        // Esto detecta cuando un elemento entra en la pantalla
+        // --- Animaciones al revelar elementos ---
         const observerOptions = {
             root: null,
             rootMargin: '0px',
-            threshold: 0.15 // Se activa cuando el 15% del elemento es visible
+            threshold: 0.15
         };
 
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Deja de observar una vez que ya apareció
+                    observer.unobserve(entry.target);
                 }
             });
         }, observerOptions);
 
-        // Seleccionamos todos los elementos importantes y los preparamos para animar
         const elementosAAnimar = document.querySelectorAll('section h2, section h3, section p, .grid > div, .relative.border-l-2 > div, form');
         
         elementosAAnimar.forEach((el, index) => {
             el.classList.add('fade-in-up');
-            // Si es un proyecto (está dentro de la grilla), le damos un ligero retraso en cascada
             if(el.closest('.grid')) {
                 el.style.transitionDelay = `${(index % 3) * 0.15}s`;
             }
             observer.observe(el);
         });
 
-        // Actualizar año del footer automáticamente
+        // --- Actualizar año del footer ---
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Efecto Typing (Máquina de escribir) ---
+        const textArray = ["Ingeniero Civil", "Especialista BIM", "Residente de Obra", "Gestor de Proyectos"];
+        const typingDelay = 100;
+        const erasingDelay = 50;
+        const newTextDelay = 2000; // Tiempo que espera antes de borrar
+        let textArrayIndex = 0;
+        let charIndex = 0;
+        const typingTextSpan = document.getElementById("typing-text");
+
+        function type() {
+            // Protección: si no existe el elemento, detenemos la función para evitar errores
+            if (!typingTextSpan) return; 
+            
+            if (charIndex < textArray[textArrayIndex].length) {
+                typingTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                typingTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, typingDelay + 500);
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            if(textArray.length && typingTextSpan) {
+                setTimeout(type, newTextDelay);
+            }
+        });
     </script>
 </body>
 </html>
